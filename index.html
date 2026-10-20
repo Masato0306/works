@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>吉野雅人 映像作例</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* layout: 全面の映像に極太の名前 → 流れる帯 → 暗い作例の上映欄 → 明るい「作れるもの」 → 暗い問い合わせ。参考 NOTZERO（2026-10-20 実測）の型を写し、中身は自社 */
+:root{
+  --ink:#0d0d0f; --dark:#18181b; --line:rgba(255,255,255,.10);
+  --paper:#f3f1ee; --paper-ink:#141416; --paper-muted:#6b6a70;
+  --white:#f7f6f3; --muted:#a3a2a8; --red:#b3221a; --red-hover:#cf2b21;
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink);color:var(--white)}
+body{font-family:var(--jp);font-size:15px;line-height:1.75;margin:0}
+a{color:inherit}
+.gut{padding-inline:clamp(16px,4vw,48px)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:calc(env(safe-area-inset-top,0px) + 18px);padding-bottom:18px}
+.logo{font-family:var(--display);font-size:20px;letter-spacing:.04em;text-decoration:none}
+.links{display:flex;align-items:center;gap:clamp(14px,3vw,34px);font-size:11.5px;font-weight:700;letter-spacing:.18em}
+.links a{text-decoration:none}
+.pill{background:var(--red);padding:8px 18px;border-radius:999px}
+.pill:hover{background:var(--red-hover)}
+@media (max-width:520px){.links .hide-sm{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,920px);display:grid;place-items:center;text-align:center;overflow:hidden;padding-block:120px 80px}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,15,.55),rgba(13,13,15,.35) 40%,rgba(13,13,15,.85))}
+.hero-in{position:relative;z-index:1;display:grid;gap:18px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,15vw,220px);line-height:.92;letter-spacing:.01em;margin:0;text-shadow:0 4px 60px rgba(0,0,0,.35)}
+.hero .sub{font-size:clamp(10.5px,1.4vw,13px);letter-spacing:.42em;font-weight:700;color:rgba(247,246,243,.72);margin:0}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:1;font-size:10px;letter-spacing:.3em;color:rgba(247,246,243,.5);display:grid;justify-items:center;gap:8px}
+.scroll i{display:block;width:1px;height:36px;background:rgba(247,246,243,.4)}
+
+/* ticker */
+.ticker{overflow:hidden;border-block:1px solid var(--line);padding-block:22px;background:var(--dark)}
+.track{display:flex;width:max-content;animation:run 38s linear infinite}
+.track span{font-family:var(--display);font-size:clamp(34px,6vw,72px);line-height:1;padding-inline:22px;white-space:nowrap}
+.track .o{color:transparent;-webkit-text-stroke:1px rgba(247,246,243,.55)}
+.track .s{color:var(--red)}
+@keyframes run{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}}
+
+/* works */
+.works{background:var(--dark);padding-block:72px 96px}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;max-width:1240px;margin-inline:auto;margin-bottom:48px}
+.label{font-size:11.5px;letter-spacing:.3em;font-weight:700;color:var(--red);margin:0 0 6px}
+.head h2{font-family:var(--display);font-weight:400;font-size:clamp(48px,8vw,96px);line-height:.95;margin:0}
+.head p{color:var(--muted);margin:0;font-size:11.5px;letter-spacing:.24em;font-weight:700}
+.grid{max-width:1240px;margin-inline:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 32px}
+.grid figure:first-child{grid-column:1/-1}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+figure{margin:0;display:grid;gap:12px;align-content:start;min-width:0}
+.frame{position:relative;background:#000;aspect-ratio:16/9;overflow:hidden}
+.frame.v{aspect-ratio:9/16;max-height:620px;margin-inline:auto;width:100%}
+.frame.r43{aspect-ratio:4/3}
+.frame video{width:100%;height:100%;object-fit:contain;display:block}
+.cap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;font-size:11px;letter-spacing:.24em;font-weight:700;color:var(--muted)}
+.cap .t{font-family:var(--display);font-weight:400;font-size:clamp(26px,3.4vw,40px);letter-spacing:.03em;color:var(--white);flex:1 1 auto}
+.cap .n{font-family:var(--display);font-size:28px;letter-spacing:.02em;color:var(--white);font-weight:400}
+figure h3{font-weight:900;font-size:19px;line-height:1.4;margin:0;text-wrap:balance}
+.hook{margin:0;font-size:14.5px;color:var(--white)}
+.desc{margin:0;font-size:13px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:10.5px;letter-spacing:.12em;border:1px solid var(--line);padding:3px 9px;color:var(--muted)}
+
+/* make */
+.make{background:var(--paper);color:var(--paper-ink);padding-block:80px 88px}
+.make .in{max-width:1240px;margin-inline:auto;display:grid;gap:40px}
+.make h2{font-family:var(--display);font-weight:400;font-size:clamp(56px,10vw,140px);line-height:.9;margin:0}
+.bands{display:grid;border-top:1px solid #d9d6d1}
+.band{display:grid;grid-template-columns:minmax(0,90px) minmax(0,1fr) minmax(0,1.3fr);gap:16px 28px;align-items:baseline;padding-block:26px;border-bottom:1px solid #d9d6d1}
+.band .k{font-family:var(--display);font-size:32px;color:var(--red)}
+.band h3{font-weight:900;font-size:clamp(20px,2.6vw,28px);margin:0;line-height:1.3}
+.band p{margin:0;color:var(--paper-muted);font-size:14px}
+@media (max-width:640px){.band{grid-template-columns:1fr;gap:6px}}
+
+/* contact */
+.contact{background:var(--ink);padding-block:88px 72px;text-align:center}
+.contact .in{display:grid;gap:22px;justify-items:center}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(56px,11vw,150px);line-height:.9;margin:0}
+.contact p{margin:0;color:var(--muted);max-width:44ch}
+.tel{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px}
+.tel output{font-family:var(--display);font-size:clamp(30px,5vw,44px);letter-spacing:.04em;user-select:all}
+button{font:inherit;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--white);background:var(--red);border:0;border-radius:999px;padding:10px 22px;cursor:pointer}
+button:hover{background:var(--red-hover)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+footer{background:var(--ink);border-top:1px solid var(--line);padding-block:22px;font-size:11.5px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+</style>
+</head>
+<body>
+
+
+<nav class="gut">
+  <a class="logo" href="#top">MASATO YOSHINO</a>
+  <div class="links"><a class="hide-sm" href="#works">WORKS</a><a class="hide-sm" href="#make">WHAT I MAKE</a><a class="pill" href="#contact">CONTACT</a></div>
+</nav>
+
+<header class="hero gut" id="top">
+  <video src="v/w06.mp4" poster="v/p06.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-in">
+    <h1>IMAGINE.<br>THEN MAKE.</h1>
+    <p class="sub">想像したものを、そのまま映像に</p>
+  </div>
+  <div class="scroll">SCROLL<i></i></div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="track">
+  <span>AI VIDEO WORKS</span><span class="s">/</span><span class="o">IMAGINE THEN MAKE</span><span class="s">/</span><span>AI VIDEO WORKS</span><span class="s">/</span><span class="o">IMAGINE THEN MAKE</span><span class="s">/</span>
+  <span>AI VIDEO WORKS</span><span class="s">/</span><span class="o">IMAGINE THEN MAKE</span><span class="s">/</span><span>AI VIDEO WORKS</span><span class="s">/</span><span class="o">IMAGINE THEN MAKE</span><span class="s">/</span>
+</div></div>
+
+<section class="works gut" id="works">
+  <div class="head">
+    <div><p class="label">WORKS · 03</p><h2>SELECTED WORKS</h2></div>
+    <p>ALL MADE WITH AI · TAP TO PLAY WITH SOUND</p>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="make gut" id="make">
+  <div class="in">
+    <h2>WHAT I MAKE</h2>
+    <div class="bands">
+      <div class="band"><span class="k">01</span><h3>広告・CM</h3><p>お店や商品の、縦型のショート広告。SNS にそのまま出せる尺と比率で作ります。</p></div>
+      <div class="band"><span class="k">02</span><h3>企業PR</h3><p>会社やお店の姿勢を、1本のストーリーで。ナレーションと字幕もつけられます。</p></div>
+      <div class="band"><span class="k">03</span><h3>映画風ショート</h3><p>台詞・字幕・音楽まで入った、短い物語の映像。</p></div>
+      <div class="band"><span class="k">04</span><h3>MV・音楽の映像</h3><p>曲の山と動きの瞬間を合わせた、音に乗る映像。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact gut" id="contact">
+  <div class="in">
+    <p class="label">CONTACT</p>
+    <h2>LET'S MAKE IT.</h2>
+    <p>吉野雅人（映像制作）。作りたい映像のこと、お電話でお気軽にどうぞ。</p>
+    <div class="tel"><output id="tel">080-6317-1153</output><button id="copy" type="button">番号をコピー</button></div>
+  </div>
+</section>
+
+<footer class="gut"><span>© Masato Yoshino</span><span>この映像はすべて AI で作りました。登場するブランド・人物は実在しません。</span></footer>
+
+<script>
+const W=[
+ ["12","h","LAST MEMORY","SHORT FILM","53s"],
+ ["05","h","SKYFALL","COSMETICS AD","8s"],
+ ["01","h","AOBA","FASHION CM","18s"]
+];
+const g=document.getElementById("grid");
+W.forEach(([n,o,t,k,dur],i)=>{
+ const f=document.createElement("figure");
+ f.innerHTML=`<div class="frame ${o==="h"?"":o}"><video src="v/w${n}.mp4" poster="v/p${n}.jpg" controls playsinline preload="none"></video></div>
+ <div class="cap"><span>WORK <span class="n">${String(i+1).padStart(2,"0")}</span></span><span class="t">${t}</span><span>${k} ／ ${dur}</span></div>`;
+ g.appendChild(f);
+});
+document.getElementById("copy").addEventListener("click",e=>{
+ const b=e.currentTarget,el=document.getElementById("tel");
+ const sel=()=>getSelection().selectAllChildren(el);
+ const done=()=>{b.textContent="コピーしました";setTimeout(()=>b.textContent="番号をコピー",1600)};
+ try{navigator.clipboard.writeText(el.textContent).then(done,sel)}catch(_){sel()}
+});
+</script>
+
+</body>
+</html>
